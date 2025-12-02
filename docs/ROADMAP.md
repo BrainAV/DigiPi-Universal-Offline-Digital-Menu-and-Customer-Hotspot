@@ -1,0 +1,30 @@
+# 🗺️ DigiPi Digital Menu and Customer Hotspot System: Roadmap
+
+This roadmap is organized into three phases, starting with the core functionality required for a Minimum Viable Product (MVP) and building toward advanced features and scalability.
+
+## Phase 1: Minimum Viable Product (MVP) - Core Functionality
+
+| Goal | Description | Deliverables |
+| :--- | :--- | :--- |
+| **P1.1 Initial Server Setup** | Establish the base web server environment and persistence. | Python/Flask app running; SQLite database implemented; basic HTML template rendering. |
+| **P1.2 Basic Data Handling** | Implement core data ingestion and display logic. | CSV parsing script; API endpoint to retrieve *all* data; simple, non-paginated table view on the frontend. |
+| **P1.3 Admin Panel MVP** | Create a basic admin UI for data upload and initial content management. | Admin route (`/admin`) established; File upload form; display for product list; single button to save settings. |
+| **P1.4 Network Provisioning** | Implement the first-boot setup flow. | Temporary AP script; web configuration form for Wi-Fi credentials; auto-kiosk mode launch on HDMI. |
+
+## Phase 2: Enhanced Functionality and Universal Adaptability
+
+| Goal | Description | Deliverables |
+| :--- | :--- | :--- |
+| **P2.1 Universal Menu Builder** | Implement dynamic data column management. | Admin UI allows hiding/showing any column found in the CSV; sorting logic implemented via API query. |
+| **P2.2 Dynamic Display/Kiosk** | Refine the customer view to meet specific design requirements. | Non-scrolling, fixed-size table layout; timed JavaScript pagination (page-flipping) implemented; QR code generation for menu URL. |
+| **P2.3 Multi-View Support** | Enable the DigiPi to serve multiple menu configurations. | Database schema updated to support multiple configurations; Admin UI tabbed interface for creating new views (e.g., View 2); unique view URLs (`/2`, `/3`) implemented. |
+| **P2.4 Unique Hostname** | Ensure device identification on the local network. | Script to generate unique hostname (`digipi-xxxx.local`) from MAC address fragments. |
+
+## Phase 3: Customer Engagement, Hotspot, and Pro-Plan Foundation
+
+| Goal | Description | Deliverables |
+| :--- | :--- | :--- |
+| **P3.1 Customer Hotspot** | Implement the dual-network functionality. | DigiPi configured to run as an Access Point (AP); traffic routing and firewall established for network isolation. |
+| **P3.2 Captive Portal** | Implement the online store marketing feature. | Captive portal service active on the public network; HTML splash page with mandatory redirect/link to the configured online store URL. |
+| **P3.3 Head Office Sync (Pro Foundation)** | Lay the groundwork for centralized management. | Basic authentication and security hardening; API documentation for future remote data synchronization (Pro Plan). |
+| **P3.4 Feature Polishing** | Finalize UI/UX for commercial readiness. | Live preview functionality in the Admin Panel; user-friendly styling and error handling. |
