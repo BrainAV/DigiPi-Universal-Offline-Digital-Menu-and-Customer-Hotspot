@@ -17,7 +17,8 @@ def api_settings():
     return jsonify({
         'kiosk_enabled': Settings.get_value('kiosk_enabled', 'false') == 'true',
         'items_per_page': int(Settings.get_value('items_per_page', '10')),
-        'page_duration': int(Settings.get_value('page_duration', '10'))
+        'page_duration': int(Settings.get_value('page_duration', '10')),
+        'title_from_primary_sort': Settings.get_value('title_from_primary_sort', 'false') == 'true'
     })
 
 @public_bp.route('/api/products')
@@ -27,19 +28,9 @@ def api_products():
     
     # Get column configurations ordered by display_order
     column_configs = ColumnConfig.query.order_by(ColumnConfig.display_order).all()
-    config_map = {col.column_name: col for col in column_configs}
     
     # Get visible columns only, in display order
     visible_columns = [col.column_name for col in column_configs if col.visible]
-    
-    # Filter product data to only include visible columns, maintaining order
-    filtered_products = []
-    for product in products:
-        # Create list of values in the correct order
-        row_data = []
-        for col_name in visible_columns:
-            row_data.append(product.data.get(col_name, ''))
-        filtered_products.append(row_data)
     
     # Apply sorting if configured
     sort_configs = sorted(
@@ -48,15 +39,10 @@ def api_products():
     )
     
     if sort_configs:
-        def sort_key(row_data):
+        def sort_key(product):
             keys = []
             for sort_col in sort_configs:
-                # Find the index of the sort column
-                try:
-                    col_index = visible_columns.index(sort_col.column_name)
-                    value = row_data[col_index]
-                except (ValueError, IndexError):
-                    value = ''
+                value = product.data.get(sort_col.column_name, '')
                 
                 # Try to convert to number for proper numeric sorting
                 try:
@@ -71,13 +57,34 @@ def api_products():
             return tuple(keys)
         
         try:
-            filtered_products.sort(key=sort_key, reverse=any(col.sort_direction == 'desc' for col in sort_configs))
+            products.sort(key=sort_key)
         except Exception:
             # If sorting fails, just return unsorted
             pass
+
+    # Filter product data to only include visible columns, maintaining order
+    filtered_products = []
+    primary_sort_values = []
+    
+    primary_sort_col = sort_configs[0].column_name if sort_configs else None
+    
+    for product in products:
+        # Create list of values in the correct order for the table
+        row_data = []
+        for col_name in visible_columns:
+            row_data.append(product.data.get(col_name, ''))
+        filtered_products.append(row_data)
+        
+        # Capture primary sort value for the title (even if hidden)
+        if primary_sort_col:
+            primary_sort_values.append(product.data.get(primary_sort_col, ''))
+        else:
+            primary_sort_values.append('')
     
     # Return both headers and data
     return jsonify({
         'headers': visible_columns,
-        'data': filtered_products
+        'data': filtered_products,
+        'primary_sort_column': primary_sort_col,
+        'primary_sort_values': primary_sort_values
     })

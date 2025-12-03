@@ -74,10 +74,12 @@
         let kioskMode = false;
         let itemsPerPage = 10;
         let pageDuration = 10;
+        let titleFromPrimarySort = false;
         let currentPage = 0;
         let totalPages = 0;
         let pageTimer = null;
         let allProducts = [];
+        let allPrimarySortValues = [];
 
         async function loadSettings() {
             try {
@@ -86,6 +88,7 @@
                 kioskMode = settings.kiosk_enabled;
                 itemsPerPage = settings.items_per_page;
                 pageDuration = settings.page_duration * 1000; // Convert to milliseconds
+                titleFromPrimarySort = settings.title_from_primary_sort;
 
                 if (kioskMode) {
                     document.body.classList.add('kiosk-mode');
@@ -109,6 +112,7 @@
 
                 const headers = result.headers;
                 allProducts = result.data;
+                allPrimarySortValues = result.primary_sort_values || [];
 
                 if (kioskMode) {
                     renderKioskMode(headers, allProducts);
@@ -122,7 +126,22 @@
             }
         }
 
+        function updateTitle(primaryValues) {
+            if (titleFromPrimarySort && primaryValues && primaryValues.length > 0) {
+                const val = primaryValues[0];
+                if (val) {
+                    document.querySelector('h1').textContent = val;
+                } else {
+                    document.querySelector('h1').textContent = 'Product Menu';
+                }
+            } else {
+                document.querySelector('h1').textContent = 'Product Menu';
+            }
+        }
+
         function renderNormalMode(headers, products) {
+            updateTitle(allPrimarySortValues);
+
             const menuContent = document.getElementById('menu-content');
 
             let html = '<table class="product-table">';
@@ -179,6 +198,12 @@
 
             menuContent.innerHTML = html;
 
+            // Initial title update for first page
+            if (allPrimarySortValues.length > 0) {
+                const firstPageValues = allPrimarySortValues.slice(0, itemsPerPage);
+                updateTitle(firstPageValues);
+            }
+
             // Show page indicators
             if (totalPages > 1) {
                 const indicators = document.getElementById('page-indicators');
@@ -216,6 +241,12 @@
             if (currentPageEl) {
                 currentPageEl.classList.add('active');
             }
+
+            // Update title for the new page
+            const start = pageIndex * itemsPerPage;
+            const end = Math.min(start + itemsPerPage, allPrimarySortValues.length);
+            const pageValues = allPrimarySortValues.slice(start, end);
+            updateTitle(pageValues);
 
             // Update indicators
             document.querySelectorAll('.page-dot').forEach((dot, index) => {

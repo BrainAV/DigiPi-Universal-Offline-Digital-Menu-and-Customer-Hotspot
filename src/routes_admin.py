@@ -106,6 +106,7 @@ def display():
     kiosk_enabled = Settings.get_value('kiosk_enabled', 'false') == 'true'
     items_per_page = int(Settings.get_value('items_per_page', '10'))
     page_duration = int(Settings.get_value('page_duration', '10'))
+    title_from_primary_sort = Settings.get_value('title_from_primary_sort', 'false') == 'true'
     
     # Check if QR code exists
     static_folder = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'static')
@@ -116,6 +117,7 @@ def display():
                          kiosk_enabled=kiosk_enabled,
                          items_per_page=items_per_page,
                          page_duration=page_duration,
+                         title_from_primary_sort=title_from_primary_sort,
                          qr_exists=qr_exists)
 
 @admin_bp.route('/display/update', methods=['POST'])
@@ -126,6 +128,7 @@ def update_display():
         Settings.set_value('kiosk_enabled', 'true' if data.get('kiosk_enabled') else 'false')
         Settings.set_value('items_per_page', str(data.get('items_per_page', 10)))
         Settings.set_value('page_duration', str(data.get('page_duration', 10)))
+        Settings.set_value('title_from_primary_sort', 'true' if data.get('title_from_primary_sort') else 'false')
         
         db.session.commit()
         return jsonify({'success': True, 'message': 'Display settings updated!'})

@@ -39,12 +39,16 @@ The system employs a **Dual Network Architecture** to ensure security and functi
 * **Offline Data Access:** Menu data is pulled directly from the local SQLite database.
 * **Static Display:** The customer-facing view contains no buttons, scrollbars, or interactive elements.
 * **Timed Pagination:** JavaScript handles periodic API calls for data updates and cycles the display through multiple "pages" of content if the product list exceeds the screen limit.
+* **Dynamic Titles:** Option to automatically update the page title based on the primary sort value (e.g., showing "Edibles" when displaying edible products).
+* **QR Code Integration:** Displays a generated QR code to allow customers to view the menu on their personal devices.
 
 ### 3.3 Universal Admin Control Panel (`/admin`)
 * **Data Ingestion:** File upload feature to accept CSV data. The system dynamically reads the CSV headers to identify all available product variables (e.g., `THC_Level`, `Price_per_Gram`).
 * **Universal Menu Builder:** For each unique variable/column found in the data, the admin can set options:
     * **Visible/Hidden:** Toggle for the customer display.
     * **Sort Key:** Define primary and secondary sort order.
+    * **Column Reordering:** Drag-and-drop interface to change the display order of columns.
+* **Display Settings:** Configure global display options like kiosk mode, pagination speed, items per page, and dynamic titles.
 * **Multi-Display Management:** A tabbed interface to create and manage independent menu configurations.
     * Each tab corresponds to a unique display URL (e.g., `/1`, `/2`, `/3`).
     * Each display can have different product sorting, hidden columns, or even filtered product sets.
@@ -54,3 +58,9 @@ The system employs a **Dual Network Architecture** to ensure security and functi
 * **Network Isolation:** The customer network is firewalled from the store's private network.
 * **Internet Gateway:** Traffic is routed through the DigiPi's existing internet connection.
 * **Mandatory Redirect:** Customers connecting to the public Wi-Fi are forced to a splash page with a prominent link to the store's official online URL, serving as a marketing and sales tool.
+
+### 3.5 Visual Customization
+* **Theme Selection:** Admin can choose from 5 pre-made themes (e.g., Dark, Light, Chalkboard, Minimalist, Vibrant) to instantly change the menu's look and feel.
+* **Advanced Styling (Future):**
+    * **Font Control:** Options to change font families and sizes.
+    * **Custom Themes:** Ability to upload and export custom CSS themes for complete brand alignment.

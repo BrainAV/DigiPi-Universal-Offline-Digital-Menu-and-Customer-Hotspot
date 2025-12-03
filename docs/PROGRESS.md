@@ -43,6 +43,7 @@
 - [x] Timed JavaScript pagination (auto page-flipping)
 - [x] QR code generation for menu URL
 - [x] Configurable display duration per page
+- [x] Dynamic page title based on primary sort column
 
 ### P2.3 Multi-View Support ⏳
 - [ ] Database schema updated for multiple configurations
@@ -55,6 +56,12 @@
 - [ ] `digipi-xxxx.local` hostname implementation
 - [ ] mDNS/Avahi configuration
 - **Note**: Requires Raspberry Pi hardware for testing
+
+### P2.5 Visual Theming ⏳
+- [ ] Database schema for theme selection
+- [ ] 5 Pre-made CSS themes (Dark, Light, Chalkboard, Minimalist, Vibrant)
+- [ ] Admin UI for theme selection
+- [ ] Dynamic CSS loading in menu template
 
 ---
 
@@ -82,6 +89,12 @@
 - [ ] Error handling and validation
 - [ ] Production deployment guide
 
+### P3.5 Advanced Customization ⏳
+- [ ] Font family selection
+- [ ] Font size controls
+- [ ] Theme import/export functionality
+
+
 ---
 
 ## Legend
@@ -94,8 +107,10 @@
 
 ## Current Status Summary
 
-**Completed**: 3/4 Phase 1 items (75%)  
-**In Progress**: Phase 2.1 Universal Menu Builder  
-**Next Up**: Phase 2.2 Dynamic Display/Kiosk
+## Current Status Summary
+
+**Completed**: Phase 1 (MVP), Phase 2.1 (Universal Menu Builder), Phase 2.2 (Dynamic Display/Kiosk)
+**In Progress**: Phase 2.3 Multi-View Support
+**Next Up**: Phase 2.4 Unique Hostname
 
 **Last Updated**: 2025-12-02

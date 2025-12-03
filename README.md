@@ -17,12 +17,19 @@ The system is built to be **offline-first**, guaranteeing reliability even durin
 
 ## ✨ Key Features
 
-* **Universal Menu Builder:** Ingests simple CSV files and dynamically builds a powerful, flexible menu. Easily switch between vastly different product schemas (e.g., displaying `THC_level` for cannabis or `price_per_weight` for jewelry).
+* **Universal Menu Builder:** Ingests simple CSV files and dynamically builds a powerful, flexible menu.
+    * **Dynamic Columns:** Automatically detects columns from your CSV.
+    * **Custom Visibility:** Toggle any column on/off (e.g., hide `Cost_Price`, show `Retail_Price`).
+    * **Smart Sorting:** Configure primary and secondary sorting (e.g., Sort by `Category` then `Price`).
+    * **Drag-and-Drop:** Easily reorder columns to customize the display layout.
+* **Smart Kiosk Mode:**
+    * **Auto-Pagination:** Automatically cycles through pages of products if they don't fit on one screen.
+    * **Dynamic Titles:** Option to use the primary sort value (e.g., "Drinks", "Snacks") as the page title, keeping the display context-aware.
+    * **QR Code Integration:** Generates a QR code for customers to scan and view the menu on their own devices.
 * **Offline Reliability:** The entire server, database (SQLite), and application run locally on the DigiPi. Menu updates and display functions are independent of the internet.
 * **Dual-Network Security:** Operates on two segregated networks: a **Private Network** for staff/admin, and a **Public Hotspot** for customers, ensuring zero risk of customer access to internal systems.
 * **Zero-Wire Scalability:** A single DigiPi Master can serve unique, independent menus to multiple display screens via unique local URLs (e.g., `http://digipi-xxxx.local/2`).
 * **Unique Local Addressing:** Automatically assigns a unique hostname like `http://digipi-xxxx.local/` (derived from the MAC address) to prevent network conflicts when running multiple DigiPi units.
-* **Automated Kiosk Mode:** Automatically launches the menu in a dedicated full-screen browser on boot (via HDMI).
 * **Customer Engagement Hotspot:** Features a captive portal to direct customers connecting to the public Wi-Fi directly to your store's official online URL.
 
 ---
@@ -59,9 +66,10 @@ To connect additional screens:
 Access the management portal from any device on the private network:
 1.  Open a browser and navigate to `http://digipi-xxxx.local/admin`.
 2.  **Upload Data:** Upload your product CSV. The system auto-detects columns.
-3.  **Build Menu:** Use the Universal Menu Builder to toggle column visibility (`THC_Level`, `CBD_Level`), set product sorting, and customize colors.
-4.  **Multi-Display:** Use the tabbed interface to create and manage independent menus for all connected screens.
-5.  **Live Preview:** Instantly see exactly what the customer screen is displaying.
+3.  **Build Menu:** Use the Universal Menu Builder to toggle column visibility (`THC_Level`, `CBD_Level`), set product sorting, and drag-and-drop columns to reorder them.
+4.  **Display Settings:** Configure Kiosk Mode, including auto-pagination speed, items per page, and dynamic titles. Generate a QR code for your menu.
+5.  **Multi-Display:** Use the tabbed interface to create and manage independent menus for all connected screens.
+6.  **Live Preview:** Instantly see exactly what the customer screen is displaying.
 
 ---
 

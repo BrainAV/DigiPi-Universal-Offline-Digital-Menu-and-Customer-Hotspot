@@ -103,6 +103,19 @@
                     </div>
                     <input type="number" id="page-duration" value="{{ page_duration }}" min="3" max="60">
                 </div>
+
+                <div class="setting-item">
+                    <div>
+                        <div class="setting-label">Use Primary Sort as Title</div>
+                        <div class="setting-description">Replace "Product Menu" with the name of the primary sort column
+                        </div>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="title-from-primary-sort" {% if title_from_primary_sort %}checked{%
+                            endif %}>
+                        <span class="slider"></span>
+                    </label>
+                </div>
             </div>
 
             <div class="qr-section">
@@ -138,7 +151,8 @@
             const settings = {
                 kiosk_enabled: document.getElementById('kiosk-enabled').checked,
                 items_per_page: parseInt(document.getElementById('items-per-page').value),
-                page_duration: parseInt(document.getElementById('page-duration').value)
+                page_duration: parseInt(document.getElementById('page-duration').value),
+                title_from_primary_sort: document.getElementById('title-from-primary-sort').checked
             };
 
             try {
