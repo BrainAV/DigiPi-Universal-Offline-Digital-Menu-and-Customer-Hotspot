@@ -31,15 +31,12 @@ We welcome new feature ideas! Please open a discussion or an issue with the labe
     git clone [https://github.com/YOUR_USERNAME/DigiPi](https://github.com/YOUR_USERNAME/DigiPi)
     cd DigiPi
     ```
-3.  **Create a Virtual Environment:**
-    ```bash
-    python3 -m venv venv
-    source venv/bin/activate
-    ```
-4.  **Install Dependencies:**
-    ```bash
-    pip install -r requirements.txt
-    ```
+3.  **Database Setup:**
+    *   Create a local MySQL database (e.g., `digipi_dev`).
+    *   Import the schema: `mysql -u root -p digipi_dev < database/database.sql`.
+4.  **Web Server Setup:**
+    *   Point your local web server (Apache/Nginx/PHP) to the `public/` directory.
+    *   Copy `public/config.example.php` to `public/config.php` and update the database credentials.
 
 ## 🏗️ Making Changes
 
@@ -47,7 +44,7 @@ We welcome new feature ideas! Please open a discussion or an issue with the labe
     ```bash
     git checkout -b feature/my-awesome-feature
     ```
-2.  **Code:** Make your changes in the `src/` directory.
+2.  **Code:** Make your changes in the `public/` or `database/` directory.
 3.  **Test:** Ensure your code works as expected and doesn't introduce regressions.
 4.  **Commit:** Write clear, concise commit messages.
     ```bash

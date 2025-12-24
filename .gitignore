@@ -1,15 +1,8 @@
-# Python
-venv/
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-.Python
+# PHP / Composer
+vendor/
 
-# Flask
-instance/
-*.db
-*.sqlite
+# System Config
+public/config.php
 
 # IDE
 .vscode/
@@ -20,6 +13,7 @@ instance/
 Thumbs.db
 
 # Uploads
-src/static/uploads/*.csv
-src/static/uploads/*.jpg
-src/static/uploads/*.png
+public/assets/uploads/*.csv
+public/assets/uploads/*.jpg
+public/assets/uploads/*.jpeg
+public/assets/uploads/*.png

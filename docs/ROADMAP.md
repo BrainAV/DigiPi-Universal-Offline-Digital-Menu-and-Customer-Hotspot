@@ -6,9 +6,9 @@ This roadmap is organized into three phases, starting with the core functionalit
 
 | Goal | Description | Deliverables |
 | :--- | :--- | :--- |
-| **P1.1 Initial Server Setup** | Establish the base web server environment and persistence. | Python/Flask app running; SQLite database implemented; basic HTML template rendering. |
-| **P1.2 Basic Data Handling** | Implement core data ingestion and display logic. | CSV parsing script; API endpoint to retrieve *all* data; simple, non-paginated table view on the frontend. |
-| **P1.3 Admin Panel MVP** | Create a basic admin UI for data upload and initial content management. | Admin route (`/admin`) established; File upload form; display for product list; single button to save settings. |
+| **P1.1 Initial Server Setup** | Establish the base web server environment and persistence. | PHP environment configured; MySQL database schema imported; `config.php` created. |
+| **P1.2 Basic Data Handling** | Implement core data ingestion and display logic. | PHP CSV parser; PDO Database connection; simple, non-paginated table view on the frontend. |
+| **P1.3 Admin Panel MVP** | Create a basic admin UI for data upload and initial content management. | Admin PHP pages created; File upload handling; display for product list; single button to save settings. |
 | **P1.4 Network Provisioning** | Implement the first-boot setup flow. | Temporary AP script; web configuration form for Wi-Fi credentials; auto-kiosk mode launch on HDMI. |
 
 ## Phase 2: Enhanced Functionality and Universal Adaptability

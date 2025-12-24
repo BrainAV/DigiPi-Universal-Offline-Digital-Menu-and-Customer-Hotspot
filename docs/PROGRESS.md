@@ -3,24 +3,24 @@
 ## Phase 1: Minimum Viable Product (MVP) - Core Functionality
 
 ### P1.1 Initial Server Setup ✅
-- [x] Python/Flask app running
-- [x] SQLite database implemented
-- [x] Basic HTML template rendering
-- [x] Virtual environment setup
-- [x] Dependencies installed and configured
+- [x] PHP environment configured (LAMP/WAMP)
+- [x] MySQL database schema imported (`database.sql`)
+- [x] `config.php` created and connected
+- [x] Basic `index.php` rendering
+- [x] Directory structure initialized
 
-### P1.2 Basic Data Handling ✅
-- [x] CSV parsing script using pandas
-- [x] API endpoint to retrieve all data (`/api/products`)
-- [x] Simple table view on the frontend
-- [x] Dynamic column detection from CSV
+### P1.2 Basic Data Handling ⏳
+- [ ] PHP CSV parsing logic
+- [x] Database class/PDO connection wrapper
+- [ ] Simple HTML table view of products
+- [ ] Dynamic column detection from CSV
 
-### P1.3 Admin Panel MVP ✅
-- [x] Admin route (`/admin`) established
-- [x] File upload form
-- [x] Display for product list
-- [x] Success/error messaging
-- [x] Product count display
+### P1.3 Admin Panel MVP 🚧
+- [x] Admin dashboard (`/admin/index.php`)
+- [ ] File upload form (`/admin/upload.php`)
+- [ ] Display for product list
+- [ ] Success/error messaging
+- [ ] Product count display
 
 ### P1.4 Network Provisioning ⏸️
 - [ ] Temporary AP script
@@ -32,18 +32,18 @@
 
 ## Phase 2: Enhanced Functionality and Universal Adaptability
 
-### P2.1 Universal Menu Builder ✅
-- [x] Admin UI to show/hide columns
-- [x] Sorting logic via API query
-- [x] Field visibility settings stored in database
-- [x] Column order configuration
+### P2.1 Universal Menu Builder ⏳
+- [ ] Admin UI to show/hide columns
+- [ ] Sorting logic via URL parameters
+- [ ] Field visibility settings stored in MySQL
+- [ ] Column order configuration
 
-### P2.2 Dynamic Display/Kiosk ✅
-- [x] Non-scrolling, fixed-size table layout
-- [x] Timed JavaScript pagination (auto page-flipping)
-- [x] QR code generation for menu URL
-- [x] Configurable display duration per page
-- [x] Dynamic page title based on primary sort column
+### P2.2 Dynamic Display/Kiosk ⏳
+- [ ] Non-scrolling, fixed-size table layout
+- [ ] Timed JavaScript pagination (auto page-flipping)
+- [ ] QR code generation for menu URL
+- [ ] Configurable display duration per page
+- [ ] Dynamic page title based on primary sort column
 
 ### P2.3 Multi-View Support ⏳
 - [ ] Database schema updated for multiple configurations
@@ -107,10 +107,8 @@
 
 ## Current Status Summary
 
-## Current Status Summary
+**Completed**: Architecture Pivot & Planning, P1.1 Initial Server Setup
+**In Progress**: Phase 1 (MVP) - Re-implementation in PHP
+**Next Up**: P1.2 Basic Data Handling & P1.3 Admin Panel Logic
 
-**Completed**: Phase 1 (MVP), Phase 2.1 (Universal Menu Builder), Phase 2.2 (Dynamic Display/Kiosk)
-**In Progress**: Phase 2.3 Multi-View Support
-**Next Up**: Phase 2.4 Unique Hostname
-
-**Last Updated**: 2025-12-02
+**Last Updated**: 2025-12-24 (v0.1.1 Release Prep)

@@ -19,9 +19,9 @@ The system employs a **Dual Network Architecture** to ensure security and functi
 | **Public Customer Hotspot** | Provides isolated, free Wi-Fi access for customers to browse the online store. | DigiPi acts as an Access Point (AP). | **Captive Portal:** Redirects all initial connections to the pre-set online store URL. |
 
 ### 2.3 Technology Stack
-* **Operating System:** Linux (e.g., Raspberry Pi OS, customized for kiosk mode).
-* **Web Framework:** Python (Flask or Django) for the application server and API.
-* **Database:** SQLite (file-based) for local, persistent storage of product data and settings.
+* **Operating System:** Linux (e.g., Raspberry Pi OS, customized for kiosk mode) OR Standard Web Hosting.
+* **Web Framework:** PHP 7.4+ (Vanilla) for the application logic.
+* **Database:** MySQL 5.7+ for persistent storage of product data and settings.
 * **Frontend:** HTML5, CSS3, JavaScript (for dynamic updates and pagination).
 
 ## 3. Key Feature Specifications
