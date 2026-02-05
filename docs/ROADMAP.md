@@ -30,3 +30,12 @@ This roadmap is organized into three phases, starting with the core functionalit
 | **P3.3 Head Office Sync (Pro Foundation)** | Lay the groundwork for centralized management. | Basic authentication and security hardening; API documentation for future remote data synchronization (Pro Plan). |
 | **P3.4 Feature Polishing** | Finalize UI/UX for commercial readiness. | Live preview functionality in the Admin Panel; user-friendly styling and error handling. |
 | **P3.5 Advanced Customization** | Enable deep visual control for brand alignment. | Font selection; font size controls; theme import/export functionality for custom CSS. |
+
+## Phase 4: Cloud SaaS & Centralized Management (Long Term)
+
+| Goal | Description | Deliverables |
+| :--- | :--- | :--- |
+| **P4.1 Cloud Platform Core** | Establish a centralized, multi-tenant web platform. | SaaS infrastructure; User accounts/Auth; Subscription billing integration (e.g., Stripe). |
+| **P4.2 Cloud Menu Builder** | Web-based version of the Admin Panel. | Users can upload CSVs and configure menus via a public website instead of a local IP. |
+| **P4.3 Screen-as-a-Service** | Direct-to-Cloud display mode. | Unique public URLs (e.g., `app.digipi.io/s/store-name`) to run menus on Smart TVs without local hardware. |
+| **P4.4 Hybrid Sync** | Bridge local offline units with the cloud. | Mechanism for local DigiPi units to pull configs from the cloud account or push analytics up. |
