@@ -9,7 +9,7 @@ This file contains starter prompts to quickly bring Gemini Code Assist up to spe
 Use this one-liner to quickly load context at the start of a session.
 
 ```
-Please read all the project context files (`.gemini/prompt.md`, `.github/ROADMAP.md`, `.github/CONTRIBUTING.md`, etc.) to get in sync with the current state of the project.
+Please read all the project context files (`.gemini/prompt.md`, `docs/*`, `.github/CONTRIBUTING.md`, etc.) to get in sync with the current state of the project.
 ```
 
 ---
